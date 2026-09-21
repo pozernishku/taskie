@@ -2,7 +2,7 @@
 
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_spectacular.utils import extend_schema, extend_schema_view
-from rest_framework import mixins, permissions, status, viewsets
+from rest_framework import mixins, permissions, serializers, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.response import Response
@@ -37,7 +37,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     ordering_fields = ("created_at", "due_date", "priority", "status", "title")
     ordering = ("-created_at",)
 
-    def perform_create(self, serializer: TaskSerializer) -> None:
+    def perform_create(self, serializer: serializers.BaseSerializer) -> None:
         """Set task creator automatically from request user."""
         serializer.save(created_by=self.request.user)
 
