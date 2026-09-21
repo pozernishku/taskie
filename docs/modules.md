@@ -1,1 +1,1 @@
-::: taskie.foo
+::: taskie

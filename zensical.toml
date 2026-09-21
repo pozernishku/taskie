@@ -14,7 +14,7 @@ nav = [
 ]
 
 [project.plugins.mkdocstrings.handlers.python]
-paths = ["src/taskie"]
+paths = ["src"]
 
 [project.theme]
 language = "en"
